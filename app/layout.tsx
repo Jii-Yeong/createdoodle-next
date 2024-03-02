@@ -1,0 +1,20 @@
+import '@/styles/reset.css';
+import type {Metadata} from 'next';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: '끄적끄적',
+  description: '끄적끄적',
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="ko">
+      <body>{children}</body>
+    </html>
+  );
+}
