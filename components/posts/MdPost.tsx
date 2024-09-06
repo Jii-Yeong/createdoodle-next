@@ -1,8 +1,8 @@
-import Image from 'next/image';
 import Markdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {a11yDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import remarkGfm from 'remark-gfm';
+import './MdPost.scss';
 
 type MdPostProps = {
   markdownText: string;
@@ -10,17 +10,15 @@ type MdPostProps = {
 
 export default function MdPost({markdownText}: MdPostProps) {
   return (
-    <div className="bg-white rounded-2xl p-16 max-w-[1000px]">
+    <div className="md-post bg-white rounded-2xl p-16 max-w-[1000px]">
       <Markdown
         remarkPlugins={[remarkGfm]}
         components={{
           img(props) {
             return (
-              <Image
-                src={`${process.env.CLIENT_URL}/${props.src}`}
+              <img
+                src={`${process.env.NEXT_PUBLIC_CLIENT_URL}/${props.src}`}
                 alt={`${props.alt}`}
-                width={800}
-                height={100}
               />
             );
           },
@@ -40,6 +38,9 @@ export default function MdPost({markdownText}: MdPostProps) {
                 {children}
               </code>
             );
+          },
+          ol(props) {
+            return <ol>{props.children}</ol>;
           },
         }}>
         {markdownText}
