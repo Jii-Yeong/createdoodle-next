@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <CommonHeader />
-        {children}
+        <div className="py-[76px]">{children}</div>
       </body>
     </html>
   );
