@@ -27,11 +27,20 @@
   ul {
     list-style: revert;
     margin-left: 20px;
+    line-height: 1.9;
   }
 
   a {
     color: $main-color;
     font-weight: bold;
     text-decoration: underline;
+  }
+
+  p {
+    line-height: 1.9;
+  }
+
+  .left-line {
+    border-left: 3px solid #dfe2e5;
   }
 }

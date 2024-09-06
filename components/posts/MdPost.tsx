@@ -42,6 +42,15 @@ export default function MdPost({markdownText}: MdPostProps) {
           ol(props) {
             return <ol>{props.children}</ol>;
           },
+          blockquote(props) {
+            return (
+              <div className="left-line flex flex-row items-center my-[8px]">
+                <p className="px-[8px] text-[#999999] leading-8">
+                  {props.children}
+                </p>
+              </div>
+            );
+          },
         }}>
         {markdownText}
       </Markdown>
