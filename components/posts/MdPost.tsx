@@ -1,7 +1,10 @@
+import 'katex/dist/katex.min.css';
 import Markdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {a11yDark} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 import './MdPost.scss';
 
 type MdPostProps = {
@@ -12,7 +15,8 @@ export default function MdPost({markdownText}: MdPostProps) {
   return (
     <div className="md-post bg-white rounded-2xl p-16 max-w-[1000px]">
       <Markdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[remarkGfm, remarkMath]}
+        rehypePlugins={[rehypeKatex]}
         components={{
           img(props) {
             return (
